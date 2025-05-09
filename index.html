@@ -1,38 +1,115 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang cá nhân của Đạt</title>
-  <link rel="stylesheet" href="style.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Đạt | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <img src="assets/avatar.jpg" alt="Avatar" class="avatar">
-    <h1>Xin chào, mình là Đạt</h1>
-    <p>Chuyên viên quản lý kho & vận hành chuỗi cung ứng</p>
+  <!-- Header -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <img src="assets/avatar.jpg" alt="Đạt avatar" class="avatar">
+        <h1>Chào bạn, mình là Đạt!</h1>
+        <p>Chuyên gia quản lý kho và vận hành logistics với hơn 5 năm kinh nghiệm.</p>
+        <a href="#contact" class="cta-btn">Liên hệ ngay</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>Giới thiệu</h2>
-      <p>Mình có kinh nghiệm trong quản lý kho, tài sản và tối ưu vận hành cho các công ty TMĐT, F&B.</p>
-    </section>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#about">Giới thiệu</a>
+      <a href="#skills">Kỹ năng</a>
+      <a href="#projects">Dự án</a>
+      <a href="#certifications">Chứng chỉ</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+  </nav>
 
-    <section>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Giới thiệu</h2>
+      <p>Mình là Đạt, chuyên gia trong lĩnh vực quản lý kho và vận hành logistics. Với hơn 5 năm kinh nghiệm trong ngành F&B và thương mại điện tử, mình đã giúp tối ưu quy trình, giảm chi phí và nâng cao hiệu quả công việc cho các doanh nghiệp. Tôi tin rằng một công việc được tổ chức tốt sẽ tạo ra những kết quả tuyệt vời.</p>
+      <p>Với những kỹ năng và kinh nghiệm đã tích lũy được, tôi sẵn sàng đối mặt với các thử thách mới và phát triển bản thân hơn nữa trong các dự án vận hành quy mô lớn.</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
       <h2>Kỹ năng</h2>
       <ul>
-        <li>Excel nâng cao, Google Sheets, ERP</li>
-        <li>Quản lý tài sản & chứng từ</li>
-        <li>Điều phối kho hàng, 5S, PCCC</li>
+        <li>Quản lý kho: Xử lý 5.000+ SKU, 1.500m² không gian kho</li>
+        <li>Thành thạo Excel (Pivot, VLOOKUP), Google Sheets</li>
+        <li>Quản lý và tối ưu hóa quy trình vận hành kho</li>
+        <li>Sử dụng ERP (Fast Business Online), Power BI, Looker Studio</li>
+        <li>Đảm bảo PCCC, 5S và tuân thủ quy trình chứng từ</li>
+        <li>Giải quyết sự cố và tối ưu hóa chi phí quản lý kho</li>
       </ul>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Dự án tiêu biểu</h2>
+      <div class="project">
+        <h3>TIKINGON – Kho thực phẩm tươi mùa dịch</h3>
+        <p>Đảm bảo cung cấp thực phẩm tươi cho thị trường trong điều kiện giãn cách xã hội, thiết lập và tối ưu quy trình bảo quản và vận chuyển thực phẩm trong kho.</p>
+      </div>
+      <div class="project">
+        <h3>Expansion Hub Logistics</h3>
+        <p>Lắp đặt trang thiết bị cho 12 trạm trung chuyển của sàn TMĐT, tối ưu hóa không gian kho và giảm thiểu thời gian xử lý đơn hàng.</p>
+      </div>
+      <div class="project">
+        <h3>Quản lý tài sản cho kho Fulfillment</h3>
+        <p>Quản lý hơn 10.000 SKU cho các kho Fulfillment, theo dõi tình trạng tài sản và đảm bảo vận hành kho diễn ra trơn tru, hiệu quả.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section">
+    <div class="container">
+      <h2>Chứng chỉ</h2>
+      <ul>
+        <li><strong>Chứng chỉ Quản lý Kho (Warehousing Management Certificate)</strong> - 2024</li>
+        <li><strong>Chứng chỉ Excel Nâng Cao</strong> - 2023</li>
+        <li><strong>Chứng chỉ Quản lý Chuỗi Cung Ứng (Supply Chain Management)</strong> - 2022</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Liên hệ</h2>
+      <p>Để biết thêm thông tin hoặc hợp tác cùng tôi, bạn có thể liên hệ qua:</p>
+      <ul>
+        <li>Email: <a href="mailto:dat.lehoang1995@gmail.com">dat.lehoang1995@gmail.com</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/datle-hoang" target="_blank">linkedin.com/in/datle-hoang</a></li>
+        <li>Phone: 0356465143</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>Liên hệ: <a href="mailto:dat@example.com">dat@example.com</a></p>
+    <div class="container">
+      <p>&copy; 2025 Đạt. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
+
 </html>
