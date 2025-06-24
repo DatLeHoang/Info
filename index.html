@@ -11,7 +11,7 @@
   <header class="navbar" data-aos="fade-down">
     <div class="container">
       <h1>Đạt Lê Hoàng</h1>
-      <p>Chuyên gia quản lý kho & vận hành trong lĩnh vực thương mại điện tử</p>
+      <p id="typing"></p> <!-- Hiệu ứng gõ chữ -->
     </div>
   </header>
 
@@ -48,6 +48,11 @@
       <h2>Thống kê GitHub</h2>
       <img src="https://github-readme-stats.vercel.app/api?username=datlehoang&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
     </section>
+
+    <!-- Nút tải CV -->
+    <section id="download" class="scroll" data-aos="fade-up" data-aos-delay="400" style="text-align: center;">
+      <a href="cv-dat-le-hoang.pdf" download class="cv-button">📄 Tải CV</a>
+    </section>
   </main>
 
   <footer data-aos="fade-up">
@@ -61,10 +66,45 @@
     </div>
   </footer>
 
+  <!-- Nút về đầu trang -->
   <button id="scrollToTop" title="Lên đầu trang">⬆️</button>
+
+  <!-- Nút đổi sáng/tối -->
+  <button id="toggleMode" title="Chuyển chế độ sáng/tối">🌓</button>
 
   <script src="script.js" defer></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init();</script>
+
+  <!-- Script hiệu ứng gõ chữ & chức năng -->
+  <script>
+    // Gõ chữ
+    const subtitle = "Chuyên gia quản lý kho & vận hành trong lĩnh vực thương mại điện tử";
+    let i = 0;
+    function typeEffect() {
+      const el = document.getElementById("typing");
+      if (i < subtitle.length) {
+        el.innerHTML += subtitle.charAt(i);
+        i++;
+        setTimeout(typeEffect, 40);
+      }
+    }
+    document.addEventListener("DOMContentLoaded", typeEffect);
+
+    // Nút về đầu trang
+    const topBtn = document.getElementById("scrollToTop");
+    window.onscroll = () => {
+      topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    };
+    topBtn.onclick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // Đổi chế độ sáng/tối
+    const toggleMode = document.getElementById("toggleMode");
+    toggleMode.onclick = () => {
+      document.body.classList.toggle("light-mode");
+    };
+  </script>
 </body>
 </html>
