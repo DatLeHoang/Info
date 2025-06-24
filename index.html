@@ -1,67 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Đạt - Trang cá nhân</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đạt Lê Hoàng - Website Cá Nhân</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container nav-container">
-      <h1 class="logo">Đạt.dev</h1>
-      <ul class="nav-links">
-        <li><a href="#about">Giới thiệu</a></li>
-        <li><a href="#projects">Dự án</a></li>
-        <li><a href="#stats">GitHub</a></li>
-        <li><a href="#cv">CV</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <header>
-    <div class="container header-content">
-      <img src="avatar.png" alt="Ảnh đại diện của Đạt" class="avatar" />
-      <h1>Đạt – Quản lý kho & vận hành</h1>
-      <p>Thành thạo quản lý kho, tài sản, vận hành cho TMĐT & F&B</p>
+  <header data-aos="fade-down">
+    <div class="container">
+      <h1>Đạt Lê Hoàng</h1>
+      <p>Quản lý kho • Vận hành • TMĐT</p>
     </div>
   </header>
 
-  <div class="container">
-    <section id="about">
+  <main class="container">
+    <section id="about" data-aos="fade-up">
+      <img src="avatar.png" alt="Avatar" class="avatar" />
       <h2>Giới thiệu</h2>
-      <p>Tôi tên là <strong>Đạt</strong>, có kinh nghiệm quản lý kho Non-Food với hơn 5.000 SKU và vận hành tài sản tại nhiều trạm Fulfillment.</p>
-      <p>Từng tham gia dự án TIKINGON, mở rộng hub giao nhận cho TMĐT, và setup kho chuỗi F&B.</p>
-      <p>Sử dụng tốt Excel, ERP, Power BI, Looker Studio.</p>
+      <p><strong>Đạt</strong> có nhiều năm kinh nghiệm quản lý kho hàng TMĐT, Non-Food, F&B; giỏi tối ưu không gian, xử lý tồn kho và quản lý tài sản tại các văn phòng, bưu cục và kho lớn.</p>
     </section>
 
-    <section id="projects">
-      <h2>Dự án tiêu biểu</h2>
+    <section id="projects" data-aos="fade-up" data-aos-delay="200">
+      <h2>Dự án nổi bật</h2>
       <ul>
-        <li><a href="#">TIKINGON – Setup kho thực phẩm tươi mùa dịch</a></li>
-        <li><a href="#">Mở rộng 12 trạm trung chuyển TMĐT</a></li>
-        <li><a href="#">Tối ưu kho Non-Food cho chuỗi F&B</a></li>
+        <li>TIKINGON – Lắp đặt kho thực phẩm tươi trong mùa dịch</li>
+        <li>Mở rộng 12 hub trung chuyển cho sàn TMĐT</li>
+        <li>Tối ưu tồn kho F&B – Giảm 10% sai sót, 15% chi phí</li>
       </ul>
     </section>
 
-    <section id="stats">
+    <section id="stats" data-aos="zoom-in" data-aos-delay="400">
       <h2>Thống kê GitHub</h2>
-      <img src="https://github-readme-stats.vercel.app/api?username=datle&show_icons=true&theme=default" alt="GitHub Stats" />
+      <img src="https://github-readme-stats.vercel.app/api?username=datlehoang&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
     </section>
+  </main>
 
-    <section id="cv" style="text-align: center; margin-top: 40px;">
-      <a href="CV-Dat.pdf" class="btn-download" download>Tải CV của tôi</a>
-    </section>
-  </div>
-
-  <footer>
-    <ul>
-      <li><a href="#">Facebook</a></li>
-      <li><a href="#">LinkedIn</a></li>
-      <li><a href="#">Email</a></li>
-    </ul>
-    <p>&copy; 2025 Đạt. All rights reserved.</p>
+  <footer data-aos="fade-up">
+    <div class="container">
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Zalo</a></li>
+      </ul>
+      <p>© 2025 Đạt Lê Hoàng</p>
+    </div>
   </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
