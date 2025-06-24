@@ -29,7 +29,6 @@ header {
 
 header h1 {
   font-size: 3em;
-  animation: fadeIn 1s ease-out;
 }
 
 header p {
@@ -110,8 +109,32 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  padding: 10px 14px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#scrollToTop:hover {
+  background-color: #2980b9;
+}
+
+.scrolled-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.scroll {
+  opacity: 0;
+  transform: translateY(30px);
 }
