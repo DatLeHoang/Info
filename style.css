@@ -14,7 +14,6 @@ body {
   transition: background 0.5s, color 0.5s;
 }
 
-/* === Z-INDEX FIX để hiển thị lá rơi/gió === */
 header, main, footer {
   position: relative;
   z-index: 2;
@@ -25,7 +24,6 @@ body.light-mode {
   background: #121212;
   color: #f1f1f1;
 }
-
 body.light-mode section {
   background: #1e1e1e;
   color: #f1f1f1;
@@ -149,7 +147,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* === BUTTON === */
+/* === BUTTONS === */
 #scrollToTop, #toggleMode {
   position: fixed;
   bottom: 30px;
@@ -164,20 +162,12 @@ footer a:hover {
   transition: background 0.3s;
   z-index: 999;
 }
-
 #scrollToTop:hover,
 #toggleMode:hover {
   background-color: #0056b3;
 }
-
-#scrollToTop {
-  right: 30px;
-  display: none;
-}
-
-#toggleMode {
-  right: 80px;
-}
+#scrollToTop { right: 30px; display: none; }
+#toggleMode { right: 80px; }
 
 /* === ANIMATION === */
 .scrolled-in {
@@ -185,7 +175,6 @@ footer a:hover {
   transform: translateY(0);
   transition: all 0.6s ease-in-out;
 }
-
 .scroll {
   opacity: 0;
   transform: translateY(30px);
@@ -195,14 +184,10 @@ footer a:hover {
 .lightbox {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw; height: 100vh;
   background: rgba(0,0,0,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
+  display: flex; justify-content: center; align-items: center;
+  opacity: 0; pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 9999;
 }
@@ -210,19 +195,15 @@ footer a:hover {
   opacity: 1;
   pointer-events: auto;
 }
-.lightbox-content {
-  position: relative;
-}
+.lightbox-content { position: relative; }
 .lightbox-img {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 90vw; max-height: 90vh;
   border-radius: 12px;
   box-shadow: 0 0 10px #fff;
 }
 .lightbox-close {
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -15px; right: -15px;
   background: #fff;
   color: #000;
   font-size: 24px;
@@ -236,17 +217,14 @@ footer a:hover {
 .falling-leaves {
   pointer-events: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   z-index: 1;
 }
 .leaf {
   position: absolute;
   top: -50px;
-  width: 30px;
-  height: 30px;
+  width: 30px; height: 30px;
   background-image: url('https://i.imgur.com/UWo9JkN.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -260,10 +238,8 @@ footer a:hover {
 /* === HIỆU ỨNG GIÓ === */
 .wind {
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+  top: 0; left: 0;
+  height: 100%; width: 100%;
   background: linear-gradient(120deg, rgba(255,255,255,0.05), rgba(0,0,0,0.05));
   animation: windMove 6s ease-in-out infinite alternate;
   z-index: 0;
@@ -272,4 +248,22 @@ footer a:hover {
 @keyframes windMove {
   0% { transform: translateX(-10px); }
   100% { transform: translateX(10px); }
+}
+
+/* === GÕ CHỮ GIỚI THIỆU === */
+.typing-box {
+  font-size: 1.05em;
+  color: #333;
+  white-space: pre-wrap;
+  border-right: 2px solid #007bff;
+  animation: blinkCursor 1s step-end infinite;
+  padding-top: 10px;
+}
+body.light-mode .typing-box {
+  color: #f1f1f1;
+  border-color: #66b3ff;
+}
+@keyframes blinkCursor {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #007bff; }
 }
