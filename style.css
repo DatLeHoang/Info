@@ -221,3 +221,67 @@ body.light-mode a {
   opacity: 0;
   transform: translateY(30px);
 }
+/* === Hiệu ứng con trỏ chuột === */
+body {
+  cursor: url('https://cdn-icons-png.flaticon.com/128/545/545705.png'), auto;
+}
+
+/* === Avatar Hover === */
+.avatar {
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
+}
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* === GitHub Stats Hover === */
+#stats img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+#stats img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05) saturate(1.2);
+}
+
+/* === Nút CV lấp lánh === */
+.cv-button {
+  animation: pulse-glow 2.5s infinite;
+}
+
+/* === Tiêu đề section chuyển động nhẹ === */
+h2 {
+  position: relative;
+  animation: subtle-bounce 3s infinite ease-in-out;
+}
+
+/* === Background động nhẹ nhàng === */
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, #ffffff22 0%, transparent 60%);
+  animation: backgroundFloat 10s ease-in-out infinite alternate;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === Animation Keyframes === */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0px #007bff; }
+  50% { box-shadow: 0 0 20px #007bff; }
+  100% { box-shadow: 0 0 0px #007bff; }
+}
+
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes backgroundFloat {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 20px); }
+}
