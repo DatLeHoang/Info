@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLightbox();
   initFormValidation();
   initDarkModeToggle();
+  initMultiLineTyping();
 });
 
 function initNavbarScroll() {
@@ -30,7 +31,7 @@ function initScrollToTop() {
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.scroll');
   const animate = () => {
-    const threshold = window.innerHeight - 100;
+    const threshold = window.innerHeight - 150;
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
       el.classList.toggle('scrolled-in', rect.top < threshold);
@@ -98,7 +99,7 @@ function initFormValidation() {
 }
 
 function isValidEmail(email) {
-  return /^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/.test(email);
+  return /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(email);
 }
 
 function initDarkModeToggle() {
@@ -108,4 +109,32 @@ function initDarkModeToggle() {
   toggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
   });
+}
+
+function initMultiLineTyping() {
+  const lines = [
+    "Đạt Lê Hoàng là chuyên gia vận hành có hơn 5 năm kinh nghiệm trong quản lý kho hàng thực phẩm, Non-Food và Fulfillment TMĐT. Từng làm việc tại các hệ thống lớn như TIKI và chuỗi F&B IN DINING.",
+    "Thành thạo Excel nâng cao, Google Sheets, phần mềm ERP (Fast Business Online), Power BI, Looker Studio.",
+    "Đặc biệt giỏi trong tối ưu hóa không gian kho, quy trình kiểm kê – xuất nhập, và xử lý dữ liệu vận hành thực tế."
+  ];
+
+  const box = document.getElementById("typing-intro");
+  let line = 0, char = 0;
+
+  function type() {
+    if (line < lines.length) {
+      if (char < lines[line].length) {
+        box.innerHTML += lines[line].charAt(char);
+        char++;
+        setTimeout(type, 25);
+      } else {
+        box.innerHTML += "<br/>";
+        line++;
+        char = 0;
+        setTimeout(type, 400);
+      }
+    }
+  }
+
+  type();
 }
