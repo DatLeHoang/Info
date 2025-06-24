@@ -1,95 +1,101 @@
-// Thêm sự kiện khi trang web đã tải xong
-document.addEventListener('DOMContentLoaded', function () {
-  // 1. Hiệu ứng thay đổi navbar khi cuộn trang
-  window.addEventListener('scroll', function () {
-    let navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
-    }
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbarScroll();
+  initScrollToTop();
+  initScrollAnimations();
+  initLightbox();
+  initFormValidation();
+});
+
+function initNavbarScroll() {
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('navbar-scrolled', window.scrollY > 50);
+  });
+}
+
+function initScrollToTop() {
+  const btn = document.getElementById('scrollToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.scrollY > 200 ? 'block' : 'none';
   });
 
-  // 2. Tính năng scroll to top
-  const scrollToTopBtn = document.getElementById('scrollToTop');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 200) {
-      scrollToTopBtn.style.display = 'block';
-    } else {
-      scrollToTopBtn.style.display = 'none';
-    }
-  });
-
-  scrollToTopBtn.addEventListener('click', function () {
+  btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+}
 
-  // 3. Scroll Animations (hiệu ứng khi cuộn trang đến phần tử)
-  const scrollElements = document.querySelectorAll('.scroll');
-  const scrollIntoView = () => {
-    scrollElements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      if (elementPosition < windowHeight - 150) {
-        element.classList.add('scrolled-in');
-      } else {
-        element.classList.remove('scrolled-in');
-      }
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.scroll');
+  const animate = () => {
+    const threshold = window.innerHeight - 150;
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      el.classList.toggle('scrolled-in', rect.top < threshold);
     });
   };
+  window.addEventListener('scroll', animate);
+  animate();
+}
 
-  // Thực thi khi cuộn trang
-  window.addEventListener('scroll', scrollIntoView);
-  scrollIntoView(); // Kiểm tra khi mới tải trang
-
-  // 4. Thêm hiệu ứng lightbox cho ảnh trong portfolio
+function initLightbox() {
   const images = document.querySelectorAll('.portfolio-image');
-  images.forEach(image => {
-    image.addEventListener('click', function () {
-      openLightbox(image.src);
-    });
+  images.forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src));
+  });
+}
+
+function openLightbox(src) {
+  const lightbox = document.createElement('div');
+  lightbox.classList.add('lightbox');
+  lightbox.innerHTML = `
+    <div class="lightbox-content">
+      <img src="${src}" class="lightbox-img" alt="Image" />
+      <span class="lightbox-close">&times;</span>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+  setTimeout(() => lightbox.classList.add('show'), 10);
+
+  const close = () => {
+    lightbox.classList.remove('show');
+    setTimeout(() => lightbox.remove(), 300);
+  };
+
+  lightbox.querySelector('.lightbox-close').addEventListener('click', close);
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) close();
   });
 
-  function openLightbox(imageSrc) {
-    const lightbox = document.createElement('div');
-    lightbox.classList.add('lightbox');
-    lightbox.innerHTML = `
-      <div class="lightbox-content">
-        <img src="${imageSrc}" alt="Image" class="lightbox-img">
-        <span class="lightbox-close">&times;</span>
-      </div>
-    `;
-    document.body.appendChild(lightbox);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') close();
+  }, { once: true });
+}
 
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    closeBtn.addEventListener('click', function () {
-      document.body.removeChild(lightbox);
-    });
-  }
+function initFormValidation() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
 
-  // 5. Form validation cho form liên hệ
-  const contactForm = document.getElementById('contact-form');
-  contactForm.addEventListener('submit', function (event) {
-    event.preventDefault(); // Ngừng gửi form
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = form.querySelector('#email').value.trim();
+    const message = form.querySelector('#message').value.trim();
 
-    if (!validateEmail(email)) {
-      alert('Vui lòng nhập một email hợp lệ!');
+    if (!isValidEmail(email)) {
+      alert('Vui lòng nhập email hợp lệ!');
       return;
     }
-
     if (message.length < 10) {
       alert('Vui lòng nhập thông điệp ít nhất 10 ký tự!');
       return;
     }
 
     alert('Form đã được gửi thành công!');
-    contactForm.reset(); // Xóa form sau khi gửi
+    form.reset();
   });
+}
 
-  function validateEmail(email) {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return regex.test(email);
-  }
-});
+function isValidEmail(email) {
+  return /^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/.test(email);
+}
