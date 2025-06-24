@@ -11,6 +11,7 @@ body {
   color: #212529;
   line-height: 1.6;
   scroll-behavior: smooth;
+  cursor: url('https://cdn-icons-png.flaticon.com/128/545/545705.png'), auto;
 }
 
 .container {
@@ -49,7 +50,6 @@ section {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
-
 section:hover {
   transform: translateY(-4px);
 }
@@ -58,6 +58,8 @@ h2 {
   font-size: 1.8em;
   margin-bottom: 20px;
   color: #343a40;
+  position: relative;
+  animation: subtle-bounce 3s infinite ease-in-out;
 }
 
 ul {
@@ -77,7 +79,6 @@ li {
   list-style-type: none;
   padding-left: 0;
 }
-
 .skills li {
   background: #f1f3f5;
   padding: 10px 15px;
@@ -86,6 +87,7 @@ li {
   font-weight: 500;
 }
 
+/* === AVATAR === */
 .avatar {
   display: block;
   width: 140px;
@@ -94,13 +96,24 @@ li {
   object-fit: cover;
   margin: 0 auto 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
+}
+.avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
 }
 
+/* === STATS === */
 #stats img {
   width: 100%;
   max-width: 600px;
   margin: 20px auto 0;
   display: block;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+#stats img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05) saturate(1.2);
 }
 
 /* === FOOTER === */
@@ -111,28 +124,24 @@ footer {
   padding: 20px 0;
   font-size: 0.95em;
 }
-
 footer ul {
   list-style: none;
   padding: 0;
   margin-bottom: 10px;
 }
-
 footer li {
   display: inline-block;
   margin: 0 15px;
 }
-
 footer a {
   color: #dee2e6;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
 
-/* === BUTTON: Về đầu trang === */
+/* === NÚT: LÊN ĐẦU TRANG === */
 #scrollToTop {
   position: fixed;
   bottom: 30px;
@@ -148,12 +157,11 @@ footer a:hover {
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 #scrollToTop:hover {
   background-color: #0056b3;
 }
 
-/* === BUTTON: Tải CV === */
+/* === NÚT: TẢI CV === */
 .cv-button {
   display: inline-block;
   background-color: #007bff;
@@ -164,12 +172,13 @@ footer a:hover {
   font-weight: bold;
   transition: background-color 0.3s ease;
   text-decoration: none;
+  animation: pulse-glow 2.5s infinite;
 }
 .cv-button:hover {
   background-color: #0056b3;
 }
 
-/* === BUTTON: Chuyển chế độ sáng/tối === */
+/* === NÚT: ĐỔI CHẾ ĐỘ SÁNG/TỐI === */
 #toggleMode {
   position: fixed;
   bottom: 30px;
@@ -188,7 +197,7 @@ footer a:hover {
   background-color: #ffcd39;
 }
 
-/* === LIGHT MODE === */
+/* === CHẾ ĐỘ SÁNG === */
 body.light-mode {
   background: linear-gradient(to bottom, #ffffff, #f1f3f5);
   color: #212529;
@@ -216,46 +225,27 @@ body.light-mode a {
   transform: translateY(0);
   transition: all 0.6s ease-in-out;
 }
-
 .scroll {
   opacity: 0;
   transform: translateY(30px);
 }
-/* === Hiệu ứng con trỏ chuột === */
-body {
-  cursor: url('https://cdn-icons-png.flaticon.com/128/545/545705.png'), auto;
+
+/* === ANIMATION KEYFRAMES === */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 0px #007bff; }
+  50% { box-shadow: 0 0 20px #007bff; }
+  100% { box-shadow: 0 0 0px #007bff; }
+}
+@keyframes subtle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes backgroundFloat {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 20px); }
 }
 
-/* === Avatar Hover === */
-.avatar {
-  transition: transform 0.6s ease, box-shadow 0.4s ease;
-}
-.avatar:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
-}
-
-/* === GitHub Stats Hover === */
-#stats img {
-  transition: transform 0.6s ease, filter 0.4s ease;
-}
-#stats img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.05) saturate(1.2);
-}
-
-/* === Nút CV lấp lánh === */
-.cv-button {
-  animation: pulse-glow 2.5s infinite;
-}
-
-/* === Tiêu đề section chuyển động nhẹ === */
-h2 {
-  position: relative;
-  animation: subtle-bounce 3s infinite ease-in-out;
-}
-
-/* === Background động nhẹ nhàng === */
+/* === NỀN ĐỘNG === */
 body::before {
   content: "";
   position: fixed;
@@ -267,21 +257,4 @@ body::before {
   animation: backgroundFloat 10s ease-in-out infinite alternate;
   z-index: -1;
   pointer-events: none;
-}
-
-/* === Animation Keyframes === */
-@keyframes pulse-glow {
-  0% { box-shadow: 0 0 0px #007bff; }
-  50% { box-shadow: 0 0 20px #007bff; }
-  100% { box-shadow: 0 0 0px #007bff; }
-}
-
-@keyframes subtle-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
-}
-
-@keyframes backgroundFloat {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(30px, 20px); }
 }
