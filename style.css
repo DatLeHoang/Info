@@ -11,9 +11,11 @@ body {
   color: #212529;
   line-height: 1.6;
   scroll-behavior: smooth;
-  cursor: url('https://cdn-icons-png.flaticon.com/128/545/545705.png'), auto;
+  cursor: auto;
+  overflow-x: hidden;
 }
 
+/* === CONTAINER === */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -50,6 +52,7 @@ section {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
+
 section:hover {
   transform: translateY(-4px);
 }
@@ -58,7 +61,6 @@ h2 {
   font-size: 1.8em;
   margin-bottom: 20px;
   color: #343a40;
-  position: relative;
   animation: subtle-bounce 3s infinite ease-in-out;
 }
 
@@ -79,6 +81,7 @@ li {
   list-style-type: none;
   padding-left: 0;
 }
+
 .skills li {
   background: #f1f3f5;
   padding: 10px 15px;
@@ -98,6 +101,7 @@ li {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.6s ease, box-shadow 0.4s ease;
 }
+
 .avatar:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4);
@@ -111,6 +115,7 @@ li {
   display: block;
   transition: transform 0.6s ease, filter 0.4s ease;
 }
+
 #stats img:hover {
   transform: scale(1.03);
   filter: brightness(1.05) saturate(1.2);
@@ -124,24 +129,28 @@ footer {
   padding: 20px 0;
   font-size: 0.95em;
 }
+
 footer ul {
   list-style: none;
   padding: 0;
   margin-bottom: 10px;
 }
+
 footer li {
   display: inline-block;
   margin: 0 15px;
 }
+
 footer a {
   color: #dee2e6;
   text-decoration: none;
 }
+
 footer a:hover {
   text-decoration: underline;
 }
 
-/* === NÚT: LÊN ĐẦU TRANG === */
+/* === BUTTONS === */
 #scrollToTop {
   position: fixed;
   bottom: 30px;
@@ -157,11 +166,11 @@ footer a:hover {
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 #scrollToTop:hover {
   background-color: #0056b3;
 }
 
-/* === NÚT: TẢI CV === */
 .cv-button {
   display: inline-block;
   background-color: #007bff;
@@ -174,11 +183,11 @@ footer a:hover {
   text-decoration: none;
   animation: pulse-glow 2.5s infinite;
 }
+
 .cv-button:hover {
   background-color: #0056b3;
 }
 
-/* === NÚT: ĐỔI CHẾ ĐỘ SÁNG/TỐI === */
 #toggleMode {
   position: fixed;
   bottom: 30px;
@@ -193,53 +202,61 @@ footer a:hover {
   z-index: 999;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+
 #toggleMode:hover {
   background-color: #ffcd39;
 }
 
-/* === CHẾ ĐỘ SÁNG === */
+/* === DARK MODE === */
 body.light-mode {
   background: linear-gradient(to bottom, #ffffff, #f1f3f5);
   color: #212529;
 }
+
 body.light-mode section {
   background-color: #ffffff;
 }
+
 body.light-mode header {
   background-color: #343a40;
   color: #ffffff;
 }
+
 body.light-mode header p {
   color: #ced4da;
 }
+
 body.light-mode footer {
   background-color: #212529;
 }
+
 body.light-mode a {
   color: #007bff;
 }
 
-/* === ANIMATION === */
+/* === ANIMATIONS === */
 .scrolled-in {
   opacity: 1;
   transform: translateY(0);
   transition: all 0.6s ease-in-out;
 }
+
 .scroll {
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* === ANIMATION KEYFRAMES === */
 @keyframes pulse-glow {
   0% { box-shadow: 0 0 0px #007bff; }
   50% { box-shadow: 0 0 20px #007bff; }
   100% { box-shadow: 0 0 0px #007bff; }
 }
+
 @keyframes subtle-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
 }
+
 @keyframes backgroundFloat {
   0% { transform: translate(0, 0); }
   100% { transform: translate(30px, 20px); }
@@ -247,7 +264,7 @@ body.light-mode a {
 
 /* === NỀN ĐỘNG === */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   top: -20%;
   left: -20%;
@@ -257,4 +274,56 @@ body::before {
   animation: backgroundFloat 10s ease-in-out infinite alternate;
   z-index: -1;
   pointer-events: none;
+}
+
+/* === LÁ VÀNG RƠI === */
+.falling-leaves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.leaf {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: url('https://i.ibb.co/X2FhmLt/leaf.png') no-repeat center center;
+  background-size: contain;
+  animation: fall 10s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* === CƠN GIÓ === */
+.wind {
+  position: fixed;
+  top: 20%;
+  left: -50%;
+  width: 200%;
+  height: 100px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, transparent 80%);
+  animation: blowWind 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes blowWind {
+  0% {
+    transform: translateX(0) scaleY(1);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1.2);
+  }
 }
