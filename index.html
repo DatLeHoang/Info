@@ -8,21 +8,21 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 </head>
 <body>
-  <header data-aos="fade-down">
+  <header class="navbar" data-aos="fade-down">
     <div class="container">
       <h1>Đạt Lê Hoàng</h1>
-      <p>Quản lý kho • Vận hành • TMĐT</p>
+      <p>Quản lý kho - Vận hành - TMĐT</p>
     </div>
   </header>
 
   <main class="container">
-    <section id="about" data-aos="fade-up">
+    <section id="about" class="scroll" data-aos="fade-up">
       <img src="avatar.png" alt="Avatar" class="avatar" />
       <h2>Giới thiệu</h2>
       <p><strong>Đạt</strong> có nhiều năm kinh nghiệm quản lý kho hàng TMĐT, Non-Food, F&B; giỏi tối ưu không gian, xử lý tồn kho và quản lý tài sản tại các văn phòng, bưu cục và kho lớn.</p>
     </section>
 
-    <section id="projects" data-aos="fade-up" data-aos-delay="200">
+    <section id="projects" class="scroll" data-aos="fade-up" data-aos-delay="200">
       <h2>Dự án nổi bật</h2>
       <ul>
         <li>TIKINGON – Lắp đặt kho thực phẩm tươi trong mùa dịch</li>
@@ -31,7 +31,7 @@
       </ul>
     </section>
 
-    <section id="stats" data-aos="zoom-in" data-aos-delay="400">
+    <section id="stats" class="scroll" data-aos="zoom-in" data-aos-delay="400">
       <h2>Thống kê GitHub</h2>
       <img src="https://github-readme-stats.vercel.app/api?username=datlehoang&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
     </section>
@@ -48,7 +48,10 @@
     </div>
   </footer>
 
+  <button id="scrollToTop" title="Lên đầu trang">⬆️</button>
+
   <script src="script.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init();</script>
 </body>
 </html>
