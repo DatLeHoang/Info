@@ -6,72 +6,77 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5fa;
+  color: #212121;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
 /* Container for centered content */
 .container {
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 24px 16px;
 }
 
 /* Header */
 header {
-  background-color: #3498db;
+  background-color: #189EFF;
   color: white;
-  padding: 20px 0;
+  padding: 24px 0;
   text-align: center;
+  border-bottom: 4px solid #0d8ae0;
 }
 
 header h1 {
-  font-size: 2.5em;
+  font-size: 2.4em;
+  font-weight: 600;
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: 1.1em;
+  opacity: 0.9;
 }
 
 /* About Section */
 #about {
-  margin: 40px 0;
+  margin: 32px 0;
   background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 #about h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 #about p {
-  font-size: 1.1em;
-  margin-bottom: 15px;
+  font-size: 1em;
+  margin-bottom: 12px;
 }
 
 #about strong {
-  font-weight: bold;
+  font-weight: 600;
+  color: #189EFF;
 }
 
 /* Projects Section */
 #projects {
   background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
 }
 
 #projects h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 #projects ul {
@@ -80,13 +85,14 @@ header p {
 }
 
 #projects li {
-  font-size: 1.1em;
+  font-size: 1em;
   margin-bottom: 10px;
 }
 
 #projects a {
-  color: #3498db;
+  color: #189EFF;
   text-decoration: none;
+  font-weight: 500;
 }
 
 #projects a:hover {
@@ -96,21 +102,23 @@ header p {
 /* GitHub Stats Section */
 #stats {
   background-color: #fff;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: center;
+  margin-bottom: 32px;
 }
 
 #stats img {
   width: 100%;
   max-width: 600px;
   margin-top: 20px;
+  border-radius: 8px;
 }
 
 /* Footer */
 footer {
-  background-color: #2c3e50;
+  background-color: #002b56;
   color: white;
   padding: 20px 0;
   text-align: center;
@@ -121,16 +129,4 @@ footer ul {
   padding-left: 0;
 }
 
-footer li {
-  display: inline;
-  margin: 0 15px;
-}
-
-footer a {
-  color: white;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
+fo
