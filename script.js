@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initLightbox();
   initFormValidation();
+  initDarkModeToggle();
 });
 
 function initNavbarScroll() {
@@ -29,7 +30,7 @@ function initScrollToTop() {
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.scroll');
   const animate = () => {
-    const threshold = window.innerHeight - 150;
+    const threshold = window.innerHeight - 100;
     elements.forEach(el => {
       const rect = el.getBoundingClientRect();
       el.classList.toggle('scrolled-in', rect.top < threshold);
@@ -98,4 +99,13 @@ function initFormValidation() {
 
 function isValidEmail(email) {
   return /^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$/.test(email);
+}
+
+function initDarkModeToggle() {
+  const toggleBtn = document.getElementById('toggleMode');
+  if (!toggleBtn) return;
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+  });
 }
