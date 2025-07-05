@@ -110,10 +110,10 @@ function initDarkModeToggle() {
 
 function initMultiLineTyping() {
   const lines = [
-    "Đạt Lê Hoàng là chuyên gia vận hành có hơn 5 năm kinh nghiệm trong quản lý kho hàng thực phẩm, Non-Food và Fulfillment TMĐT.",
-    "Từng làm việc tại các hệ thống lớn như TIKI và chuỗi F&B IN DINING.",
-    "Thành thạo Excel nâng cao, Google Sheets, phần mềm ERP (Fast Business Online), Power BI, Looker Studio.",
-    "Đặc biệt giỏi trong tối ưu hóa không gian kho, quy trình kiểm kê – xuất nhập, và xử lý dữ liệu vận hành thực tế."
+    "Lê Hoàng Đạt là có hơn 5 năm kinh nghiệm quản lý kho trong các lĩnh vực quản lý tài sản, quản lý kho hàng Food, Non-Food và Fulfillment.",
+    "Từng làm việc tại các hệ thống lớn như kho thương mai điện tử của TIKI và chuỗi F&B IN DINING, White Palace.",
+    "Thành thạo Excel nâng cao, Google Sheets, Onedrive, phần mềm ERP (Fast Business Online), Power BI, Looker Studio.",
+    "Đặc biệt giỏi trong tối ưu hóa không gian kho, quy trình kiểm kê – xuất nhập và xử lý dữ liệu vận hành thực tế và lập thống kê báo cáo.."
   ];
 
   const box = document.getElementById("typing-intro");
