@@ -268,7 +268,7 @@ body.light-mode .typing-box {
   50% { border-color: #007bff; }
 }
 
-/* === HIỆU ỨNG ĐỒNG TIỀN VÀNG RƠI === */
+/* === ĐỒNG TIỀN VÀNG RƠI === */
 .falling-coins {
   pointer-events: none;
   position: fixed;
