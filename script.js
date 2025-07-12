@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormValidation();
   initDarkModeToggle();
   initMultiLineTyping();
+  createFallingCoins(20); // Gọi hàm tạo đồng tiền vàng rơi
 });
 
 function initNavbarScroll() {
@@ -135,4 +136,18 @@ function initMultiLineTyping() {
   }
 
   type();
+}
+
+// === HIỆU ỨNG ĐỒNG TIỀN VÀNG RƠI ===
+function createFallingCoins(count) {
+  const container = document.querySelector('.falling-coins');
+  if (!container) return;
+  for (let i = 0; i < count; i++) {
+    const coin = document.createElement('div');
+    coin.classList.add('coin');
+    coin.style.left = Math.random() * 100 + 'vw';
+    coin.style.animationDelay = Math.random() * 10 + 's';
+    coin.style.animationDuration = 6 + Math.random() * 4 + 's';
+    container.appendChild(coin);
+  }
 }
