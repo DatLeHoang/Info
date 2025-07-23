@@ -110,8 +110,8 @@ body.light-mode .skills li {
 /* === AVATAR === */
 .avatar {
   display: block;
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto 20px;
