@@ -91,17 +91,17 @@ body{
 .left{
   background:#f7f7f7;
   justify-content:flex-end;
-  padding-right:120px;
+  padding-right:80px;
 }
 
 .right{
   background:#ffffff;
   justify-content:flex-start;
-  padding-left:120px;
+  padding-left:80px;
 }
 
 .content{
-  width:320px;
+  width:420px;
   z-index:2;
 }
 
@@ -110,6 +110,7 @@ body{
   font-weight:900;
   margin-bottom:20px;
   text-transform:lowercase;
+  white-space:nowrap;
 }
 
 .left h1{
@@ -157,7 +158,7 @@ body{
 }
 
 .center-image img{
-  width:480px;
+  width:420px;
   height:700px;
   object-fit:cover;
 
@@ -265,6 +266,10 @@ body{
   .content{
     width:100%;
     max-width:500px;
+  }
+
+  .content h1{
+    white-space:normal;
   }
 
   .center-image{
