@@ -1,35 +1,73 @@
 // script.js
 
-// Animation simple khi load
+const hero = document.querySelector(".hero");
+const centerImage = document.querySelector(".center-image img");
 
-window.addEventListener("load", () => {
+let isDown = false;
+let startX = 0;
+let currentX = 0;
 
-  const left = document.querySelector(".left");
-  const right = document.querySelector(".right");
-  const image = document.querySelector(".center-image");
+// Kéo ảnh
 
-  left.style.opacity = "0";
-  right.style.opacity = "0";
-  image.style.opacity = "0";
+hero.addEventListener("mousedown", (e) => {
+  isDown = true;
+  startX = e.clientX;
+});
 
-  left.style.transform = "translateX(-80px)";
-  right.style.transform = "translateX(80px)";
-  image.style.transform = "translate(-50%, -50%) scale(0.9)";
+window.addEventListener("mouseup", () => {
+  isDown = false;
+
+  // Tự quay về giữa
+  centerImage.style.transition = "0.5s ease";
+  centerImage.style.transform = "translateX(0px)";
 
   setTimeout(() => {
+    centerImage.style.transition = "0s";
+  }, 500);
+});
 
-    left.style.transition = "1s";
-    right.style.transition = "1s";
-    image.style.transition = "1.2s";
+window.addEventListener("mousemove", (e) => {
 
-    left.style.opacity = "1";
-    right.style.opacity = "1";
-    image.style.opacity = "1";
+  if (!isDown) return;
 
-    left.style.transform = "translateX(0)";
-    right.style.transform = "translateX(0)";
-    image.style.transform = "translate(-50%, -50%) scale(1)";
+  currentX = e.clientX - startX;
 
-  }, 200);
+  // Giới hạn kéo
+  if(currentX > 250) currentX = 250;
+  if(currentX < -250) currentX = -250;
+
+  centerImage.style.transform = `translateX(${currentX}px)`;
+
+});
+
+
+// Mobile support
+
+hero.addEventListener("touchstart", (e) => {
+  isDown = true;
+  startX = e.touches[0].clientX;
+});
+
+window.addEventListener("touchend", () => {
+  isDown = false;
+
+  centerImage.style.transition = "0.5s ease";
+  centerImage.style.transform = "translateX(0px)";
+
+  setTimeout(() => {
+    centerImage.style.transition = "0s";
+  }, 500);
+});
+
+window.addEventListener("touchmove", (e) => {
+
+  if (!isDown) return;
+
+  currentX = e.touches[0].clientX - startX;
+
+  if(currentX > 250) currentX = 250;
+  if(currentX < -250) currentX = -250;
+
+  centerImage.style.transform = `translateX(${currentX}px)`;
 
 });
