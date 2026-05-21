@@ -1,73 +1,95 @@
-// script.js
+// TYPING EFFECT
 
-const hero = document.querySelector(".hero");
-const centerImage = document.querySelector(".center-image img");
+const texts = [
+  "SQL Specialist",
+  "Power BI Developer",
+  "Python Data Analyst",
+  "Dashboard Builder"
+];
 
-let isDown = false;
-let startX = 0;
-let currentX = 0;
+let speed = 100;
+let textIndex = 0;
+let charIndex = 0;
 
-// Kéo ảnh
+const typedText = document.getElementById("typed-text");
 
-hero.addEventListener("mousedown", (e) => {
-  isDown = true;
-  startX = e.clientX;
-});
+function typeEffect(){
 
-window.addEventListener("mouseup", () => {
-  isDown = false;
+  if(charIndex < texts[textIndex].length){
 
-  // Tự quay về giữa
-  centerImage.style.transition = "0.5s ease";
-  centerImage.style.transform = "translateX(0px)";
+    typedText.textContent += texts[textIndex].charAt(charIndex);
 
-  setTimeout(() => {
-    centerImage.style.transition = "0s";
-  }, 500);
-});
+    charIndex++;
 
-window.addEventListener("mousemove", (e) => {
+    setTimeout(typeEffect, speed);
 
-  if (!isDown) return;
+  }else{
 
-  currentX = e.clientX - startX;
+    setTimeout(eraseEffect, 1500);
 
-  // Giới hạn kéo
-  if(currentX > 250) currentX = 250;
-  if(currentX < -250) currentX = -250;
+  }
 
-  centerImage.style.transform = `translateX(${currentX}px)`;
+}
 
-});
+function eraseEffect(){
+
+  if(typedText.textContent.length > 0){
+
+    typedText.textContent =
+      typedText.textContent.slice(0, -1);
+
+    setTimeout(eraseEffect, 50);
+
+  }else{
+
+    textIndex++;
+
+    if(textIndex >= texts.length){
+      textIndex = 0;
+    }
+
+    charIndex = 0;
+
+    setTimeout(typeEffect, 300);
+
+  }
+
+}
+
+typeEffect();
 
 
-// Mobile support
+// COUNTER ANIMATION
 
-hero.addEventListener("touchstart", (e) => {
-  isDown = true;
-  startX = e.touches[0].clientX;
-});
+const counters = document.querySelectorAll(".counter");
 
-window.addEventListener("touchend", () => {
-  isDown = false;
+counters.forEach(counter => {
 
-  centerImage.style.transition = "0.5s ease";
-  centerImage.style.transform = "translateX(0px)";
+  counter.innerText = "0";
 
-  setTimeout(() => {
-    centerImage.style.transition = "0s";
-  }, 500);
-});
+  const updateCounter = () => {
 
-window.addEventListener("touchmove", (e) => {
+    const target = +counter.getAttribute("data-target");
 
-  if (!isDown) return;
+    const current = +counter.innerText;
 
-  currentX = e.touches[0].clientX - startX;
+    const increment = target / 100;
 
-  if(currentX > 250) currentX = 250;
-  if(currentX < -250) currentX = -250;
+    if(current < target){
 
-  centerImage.style.transform = `translateX(${currentX}px)`;
+      counter.innerText =
+        `${Math.ceil(current + increment)}`;
+
+      setTimeout(updateCounter, 20);
+
+    }else{
+
+      counter.innerText = target + "+";
+
+    }
+
+  };
+
+  updateCounter();
 
 });
