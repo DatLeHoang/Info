@@ -1,112 +1,189 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dante Le - Portfolio</title>
+  <title>Data Portfolio</title>
 
-  <link rel="stylesheet" href="style.css"/>
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="logo">
-      <span class="logo-circle">A</span>
-      <span class="logo-text">Dat Le Hoang - Dante</span>
-    </div>
+  <!-- BACKGROUND GRID -->
+  <div class="grid-bg"></div>
 
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">about me</a></li>
-        <li><a href="#">portfolio</a></li>
-        <li><a href="#">projects</a></li>
-        <li><a href="#">blog</a></li>
-        <li><a href="#">contact me</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">DATA.</div>
+
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
 
-    <!-- LEFT -->
-    <div class="side left">
-      <div class="content">
-        <h1>Data<br>Analyst</h1>
+    <div class="hero-left">
 
-        <p>
-          Data Analyst with a passion for<br>
-          transforming data into actionable insights<br>
-          and meaningful business decisions. Check out my data analytics portfolio.
-        </p>
+      <p class="small-text">DATA ANALYST / BI DEVELOPER</p>
 
-        <button class="arrow-btn">
-          &#8592;
-        </button>
+      <h1>
+        Turning raw data<br>
+        into meaningful<br>
+        insights.
+      </h1>
+
+      <p class="description">
+        Building dashboards, analyzing datasets,
+        and transforming numbers into business decisions.
+      </p>
+
+      <div class="buttons">
+        <button class="btn-white">View Projects</button>
+        <button class="btn-dark">Contact Me</button>
       </div>
+
     </div>
 
-    <!-- CENTER IMAGE -->
-  <!--<div class="center-image"><img src="" alt=""></div>-->
+    <div class="hero-right">
 
-    <!-- RIGHT -->
-    <div class="side right">
-      <div class="content">
-        <h1>Data Cleaning<br>Audit</h1>
+      <div class="terminal">
 
-        <p>
-          Data Cleaning and Audit specialist focused
-          on identifying inconsistencies, improving
-          data quality and ensuring accurate,
-          reliable datasets for analysis.
-        </p>
+        <div class="terminal-header">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-        <button class="arrow-btn">
-          &#8594;
-        </button>
+        <div class="terminal-body">
+          <p>> initializing portfolio...</p>
+          <p>> importing datasets...</p>
+          <p>> building dashboard...</p>
+
+          <p class="typing">
+            > <span id="typed-text"></span>
+          </p>
+        </div>
+
       </div>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+
+    <div class="stat-card">
+      <h2 class="counter" data-target="25">0</h2>
+      <p>Dashboards</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 class="counter" data-target="500">0</h2>
+      <p>SQL Queries</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 class="counter" data-target="1200">0</h2>
+      <p>Hours Analyzed</p>
+    </div>
+
+    <div class="stat-card">
+      <h2 class="counter" data-target="15">0</h2>
+      <p>Projects</p>
+    </div>
+
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills">
+
+    <h2 class="section-title">Tech Stack</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">SQL</div>
+      <div class="skill-card">Python</div>
+      <div class="skill-card">Power BI</div>
+      <div class="skill-card">Excel</div>
+      <div class="skill-card">Pandas</div>
+      <div class="skill-card">NumPy</div>
+      <div class="skill-card">Tableau</div>
+      <div class="skill-card">PostgreSQL</div>
+
+    </div>
+
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="project-grid">
+
+      <div class="project-card">
+        <div class="project-image"></div>
+
+        <div class="project-content">
+          <h3>Sales Analytics Dashboard</h3>
+
+          <p>
+            Interactive dashboard for monitoring sales performance and KPIs.
+          </p>
+
+          <button>View Project</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+
+        <div class="project-content">
+          <h3>Inventory Optimization</h3>
+
+          <p>
+            Data-driven warehouse analysis and inventory forecasting.
+          </p>
+
+          <button>View Project</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-image"></div>
+
+        <div class="project-content">
+          <h3>Customer Segmentation</h3>
+
+          <p>
+            Clustering customer behaviors for marketing optimization.
+          </p>
+
+          <button>View Project</button>
+        </div>
+      </div>
+
     </div>
 
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-
-    <div class="footer-box">
-      <h3>Get in touch with me!</h3>
-
-      <div class="socials">
-        <a href="#">f</a>
-        <a href="#">t</a>
-        <a href="#">in</a>
-        <a href="#">✉</a>
-      </div>
-    </div>
-
-    <div class="footer-box center">
-      <h3>Featured here and there:</h3>
-
-      <div class="featured-grid">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <div class="footer-box resume-box">
-      <div class="resume-circle">✩</div>
-      <p>my resume</p>
-    </div>
-
+  <footer>
+    <p>
+      Powered by SQL, caffeine & questionable datasets.
+    </p>
   </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
