@@ -18,14 +18,14 @@
     <div class="logo">DAT HOANG LE - DANTE</div>
 
     <ul class="nav-links">
-      <li><a href="#">HOME</a></li>
-      <li><a href="#">PROJECTS</a></li>
-      <li><a href="#">SKILLS</a></li>
-      <li><a href="#">CONTACT</a></li>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
     </ul>
   </nav>
 
-  <section class="hero">
+  <section id="home" class="hero">
 
     <div class="hero-left">
 
@@ -43,8 +43,8 @@
       </p>
 
       <div class="buttons">
-        <button class="btn-white">View Projects</button>
-        <button class="btn-dark">Contact Me</button>
+        <button class="btn-white" onclick="location.href='#projects'">View Projects</button>
+        <button class="btn-dark" onclick="location.href='#contact'">Contact Me</button>
       </div>
 
     </div>
@@ -77,56 +77,56 @@
 
   <section class="stats">
 
-    <div class="stat-card">
+    <div class="stat-card fade-in">
       <h2 class="counter" data-target="25">0</h2>
       <p>Dashboards</p>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card fade-in">
       <h2 class="counter" data-target="500">0</h2>
       <p>SQL Queries</p>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card fade-in">
       <h2 class="counter" data-target="1200">0</h2>
       <p>Hours Analyzed</p>
     </div>
 
-    <div class="stat-card">
+    <div class="stat-card fade-in">
       <h2 class="counter" data-target="15">0</h2>
       <p>Projects</p>
     </div>
 
   </section>
 
-  <section class="skills">
+  <section id="skills" class="skills">
 
     <h2 class="section-title">Tech Stack</h2>
 
     <div class="skills-grid">
 
-      <div class="skill-card">SQL</div>
-      <div class="skill-card">PostgreSQL</div>
-      <div class="skill-card">Python</div>
-      <div class="skill-card">Pandas</div>
-      <div class="skill-card">NumPy</div>
-      <div class="skill-card">Power BI</div>
-      <div class="skill-card">Looker Studio</div>
-      <div class="skill-card">Excel</div>
-      <div class="skill-card">Google Sheets</div>
-      <div class="skill-card">Git / GitHub</div>
+      <div class="skill-card fade-in">SQL</div>
+      <div class="skill-card fade-in">PostgreSQL</div>
+      <div class="skill-card fade-in">Python</div>
+      <div class="skill-card fade-in">Pandas</div>
+      <div class="skill-card fade-in">NumPy</div>
+      <div class="skill-card fade-in">Power BI</div>
+      <div class="skill-card fade-in">Looker Studio</div>
+      <div class="skill-card fade-in">Excel</div>
+      <div class="skill-card fade-in">Google Sheets</div>
+      <div class="skill-card fade-in">Git / GitHub</div>
 
     </div>
 
   </section>
 
-  <section class="projects">
+  <section id="projects" class="projects">
 
     <h2 class="section-title">Featured Projects</h2>
 
     <div class="project-grid">
 
-      <div class="project-card">
+      <div class="project-card fade-in">
         <div class="project-image"></div>
 
         <div class="project-content">
@@ -140,7 +140,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card fade-in">
         <div class="project-image"></div>
 
         <div class="project-content">
@@ -154,7 +154,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card fade-in">
         <div class="project-image"></div>
 
         <div class="project-content">
@@ -172,7 +172,7 @@
 
   </section>
 
-  <footer>
+  <footer id="contact">
     <p>
       Crafted by Dat Hoang Le  |  Powered by SQL, caffeine & questionable datasets.
     </p>
