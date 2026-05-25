@@ -2,14 +2,12 @@
 // 1. TYPING EFFECT (CHẠY TUẦN TỰ CẢ 4 DÒNG)
 // ==========================================
 
-// Nội dung chữ chạy của 3 dòng đầu tiên
 const staticLines = [
   { id: "line1", text: "initializing portfolio..." },
   { id: "line2", text: "importing datasets..." },
   { id: "line3", text: "building dashboard..." }
 ];
 
-// Mảng chữ thay đổi liên tục của dòng thứ 4
 const texts = [
   "SQL Specialist",
   "Power BI Developer",
@@ -18,13 +16,12 @@ const texts = [
 ];
 
 let speed = 100;
-let staticLineIndex = 0; // Quản lý xem đang gõ dòng cố định nào (0, 1, 2)
+let staticLineIndex = 0; 
 let charIndex = 0;
-let textIndex = 0; // Quản lý mảng chữ của dòng 4
+let textIndex = 0; 
 
 const typedText = document.getElementById("typed-text");
 
-// Hàm gõ tuần tự 3 dòng đầu
 function typeStaticLines() {
   if (staticLineIndex < staticLines.length) {
     const currentLine = staticLines[staticLineIndex];
@@ -35,19 +32,16 @@ function typeStaticLines() {
       charIndex++;
       setTimeout(typeStaticLines, speed);
     } else {
-      // Khi gõ xong một dòng tĩnh hoàn chỉnh -> chuyển sang dòng tiếp theo
       staticLineIndex++;
       charIndex = 0;
-      setTimeout(typeStaticLines, 300); // Nghỉ 300ms trước khi gõ dòng mới
+      setTimeout(typeStaticLines, 300); 
     }
   } else {
-    // Đã gõ xong 3 dòng đầu, bắt đầu kích hoạt hiệu ứng gõ/xóa của dòng 4
     charIndex = 0;
     typeEffect();
   }
 }
 
-// Hàm gõ chữ dòng thứ 4 (Logic gốc của bạn)
 function typeEffect() {
   if (charIndex < texts[textIndex].length) {
     typedText.textContent += texts[textIndex].charAt(charIndex);
@@ -58,7 +52,6 @@ function typeEffect() {
   }
 }
 
-// Hàm xóa chữ dòng thứ 4 (Logic gốc của bạn)
 function eraseEffect() {
   if (typedText.textContent.length > 0) {
     typedText.textContent = typedText.textContent.slice(0, -1);
@@ -99,4 +92,30 @@ counters.forEach(counter => {
   };
 
   updateCounter();
+});
+
+
+// ==========================================
+// 3. SCROLL FADE-IN ANIMATION (HIỆU ỨNG CUỘN HIỂN THỊ)
+// ==========================================
+const faders = document.querySelectorAll('.fade-in');
+
+const appearOptions = {
+  threshold: 0.15,          // Phần tử xuất hiện 15% diện tích thì kích hoạt
+  rootMargin: "0px 0px -40px 0px" // Kích hoạt sớm hơn một chút trước khi chạm đáy màn hình
+};
+
+const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    
+    // Thêm class 'appear' để kích hoạt hiệu ứng CSS trượt và hiện hình
+    entry.target.classList.add('appear');
+    // Đã xuất hiện rồi thì không cần theo dõi nữa (tăng hiệu năng trang web)
+    observer.unobserve(entry.target); 
+  });
+}, appearOptions);
+
+faders.forEach(fader => {
+  appearOnScroll.observe(fader);
 });
