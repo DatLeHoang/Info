@@ -1,217 +1,185 @@
-```css
-:root{
-  --accent-color:#00f2fe;
-  --bg-color:#000;
-  --text-main:#fff;
-  --text-muted:#888;
-}
+```javascript
+// TYPING EFFECT
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+const staticLines = [
+  { id: "line1", text: "initializing portfolio..." },
+  { id: "line2", text: "importing datasets..." },
+  { id: "line3", text: "building dashboard..." }
+];
 
-body{
-  font-family:'Inter',sans-serif;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
-}
+const texts = [
+  "SQL Specialist",
+  "Power BI Developer",
+  "Python Data Analyst",
+  "Dashboard Builder"
+];
 
-/* MATRIX EFFECT */
+let speed = 100;
+let staticLineIndex = 0;
+let charIndex = 0;
+let textIndex = 0;
 
-#matrix{
-  position:fixed;
-  top:0;
-  left:0;
+const typedText = document.getElementById("typed-text");
 
-  width:100%;
-  height:100%;
+function typeStaticLines() {
 
-  z-index:-1;
+  if (staticLineIndex < staticLines.length) {
 
-  opacity:0.14;
+    const currentLine = staticLines[staticLineIndex];
 
-  pointer-events:none;
-}
+    const element = document.getElementById(currentLine.id);
 
-/* GRID BACKGROUND */
+    if (charIndex < currentLine.text.length) {
 
-.grid-bg{
-  position:fixed;
-  width:100%;
-  height:100%;
+      element.textContent += currentLine.text.charAt(charIndex);
 
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      charIndex++;
 
-  background-size:40px 40px;
+      setTimeout(typeStaticLines, speed);
 
-  z-index:0;
+    } else {
 
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-}
+      staticLineIndex++;
 
-/* NAVBAR */
+      charIndex = 0;
 
-.navbar{
-  width:100%;
-  padding:25px 8%;
+      setTimeout(typeStaticLines, 300);
+    }
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  } else {
 
-  position:sticky;
-  top:0;
+    charIndex = 0;
 
-  background:rgba(0,0,0,0.7);
-
-  backdrop-filter:blur(10px);
-
-  z-index:100;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:700;
-}
-
-.nav-links{
-  display:flex;
-  gap:40px;
-  list-style:none;
-}
-
-.nav-links a{
-  color:#aaa;
-  text-decoration:none;
-}
-
-/* HERO */
-
-.hero{
-  width:100%;
-  min-height:90vh;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:0 8%;
-  gap:80px;
-
-  position:relative;
-  z-index:2;
-}
-
-.hero-left h1{
-  font-size:72px;
-  line-height:1.1;
-  margin-bottom:30px;
-}
-
-.description{
-  color:#999;
-  max-width:550px;
-  line-height:1.8;
-  margin-bottom:40px;
-}
-
-.buttons{
-  display:flex;
-  gap:20px;
-}
-
-button{
-  padding:15px 30px;
-  border:none;
-  cursor:pointer;
-  font-weight:600;
-}
-
-.btn-white{
-  background:#fff;
-  color:#000;
-}
-
-.btn-dark{
-  background:transparent;
-  color:#fff;
-  border:1px solid #444;
-}
-
-/* TERMINAL */
-
-.hero-right{
-  flex:1;
-  display:flex;
-  justify-content:center;
-}
-
-.terminal{
-  width:100%;
-  max-width:550px;
-
-  background:#0b0b0b;
-  border:1px solid #222;
-
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.terminal-header{
-  background:#111;
-  padding:15px;
-
-  display:flex;
-  gap:10px;
-}
-
-.terminal-header span{
-  width:12px;
-  height:12px;
-
-  border-radius:50%;
-}
-
-.terminal-header span:nth-child(1){
-  background:#ff5f56;
-}
-
-.terminal-header span:nth-child(2){
-  background:#ffbd2e;
-}
-
-.terminal-header span:nth-child(3){
-  background:#27c93f;
-}
-
-.terminal-body{
-  padding:30px;
-}
-
-.terminal-body p{
-  margin-bottom:15px;
-  color:#00f2fe;
-
-  font-family:monospace;
-}
-
-.cursor{
-  animation:blink 0.8s infinite;
-}
-
-@keyframes blink{
-  0%,100%{
-    opacity:1;
-  }
-
-  50%{
-    opacity:0;
+    typeEffect();
   }
 }
+
+function typeEffect() {
+
+  if (charIndex < texts[textIndex].length) {
+
+    typedText.textContent += texts[textIndex].charAt(charIndex);
+
+    charIndex++;
+
+    setTimeout(typeEffect, speed);
+
+  } else {
+
+    setTimeout(eraseEffect, 1500);
+  }
+}
+
+function eraseEffect() {
+
+  if (typedText.textContent.length > 0) {
+
+    typedText.textContent =
+      typedText.textContent.slice(0, -1);
+
+    setTimeout(eraseEffect, 50);
+
+  } else {
+
+    textIndex++;
+
+    if (textIndex >= texts.length) {
+      textIndex = 0;
+    }
+
+    charIndex = 0;
+
+    setTimeout(typeEffect, 300);
+  }
+}
+
+typeStaticLines();
+
+
+// MATRIX EFFECT
+
+window.addEventListener("load", () => {
+
+  const canvas = document.getElementById("matrix");
+
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+
+  const letters =
+    "010101010101010101010101";
+
+  const fontSize = 14;
+
+  let columns = canvas.width / fontSize;
+
+  let drops = [];
+
+  for (let x = 0; x < columns; x++) {
+    drops[x] = 1;
+  }
+
+  function drawMatrix() {
+
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    ctx.fillStyle = "#00f2fe";
+
+    ctx.font = fontSize + "px monospace";
+
+    for (let i = 0; i < drops.length; i++) {
+
+      const text = letters.charAt(
+        Math.floor(Math.random() * letters.length)
+      );
+
+      ctx.fillText(
+        text,
+        i * fontSize,
+        drops[i] * fontSize
+      );
+
+      if (
+        drops[i] * fontSize > canvas.height &&
+        Math.random() > 0.975
+      ) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(drawMatrix, 35);
+
+  window.addEventListener("resize", () => {
+
+    resizeCanvas();
+
+    columns = canvas.width / fontSize;
+
+    drops = [];
+
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+  });
+
+});
 ```
