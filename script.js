@@ -1,3 +1,4 @@
+```javascript
 // ==========================================
 // 1. TYPING EFFECT (CHẠY TUẦN TỰ CẢ 4 DÒNG)
 // ==========================================
@@ -73,6 +74,7 @@ typeStaticLines();
 // ==========================================
 // 2. COUNTER ANIMATION (GIỮ NGUYÊN GỐC)
 // ==========================================
+
 const counters = document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
@@ -96,26 +98,88 @@ counters.forEach(counter => {
 
 
 // ==========================================
-// 3. SCROLL FADE-IN ANIMATION (HIỆU ỨNG CUỘN HIỂN THỊ)
+// 3. SCROLL FADE-IN ANIMATION
 // ==========================================
+
 const faders = document.querySelectorAll('.fade-in');
 
 const appearOptions = {
-  threshold: 0.15,          // Phần tử xuất hiện 15% diện tích thì kích hoạt
-  rootMargin: "0px 0px -40px 0px" // Kích hoạt sớm hơn một chút trước khi chạm đáy màn hình
+  threshold: 0.15,
+  rootMargin: "0px 0px -40px 0px"
 };
 
 const appearOnScroll = new IntersectionObserver(function(entries, observer) {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    
-    // Thêm class 'appear' để kích hoạt hiệu ứng CSS trượt và hiện hình
+
     entry.target.classList.add('appear');
-    // Đã xuất hiện rồi thì không cần theo dõi nữa (tăng hiệu năng trang web)
-    observer.unobserve(entry.target); 
+    observer.unobserve(entry.target);
   });
 }, appearOptions);
 
 faders.forEach(fader => {
   appearOnScroll.observe(fader);
 });
+
+
+// ==========================================
+// ===== MATRIX EFFECT ADDED =====
+// ==========================================
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const letters = "010101010101010101010101";
+const fontSize = 14;
+
+const columns = canvas.width / fontSize;
+
+const drops = [];
+
+for (let x = 0; x < columns; x++) {
+  drops[x] = 1;
+}
+
+function drawMatrix() {
+
+  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#00f2fe";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+
+    const text = letters.charAt(
+      Math.floor(Math.random() * letters.length)
+    );
+
+    ctx.fillText(
+      text,
+      i * fontSize,
+      drops[i] * fontSize
+    );
+
+    if (
+      drops[i] * fontSize > canvas.height &&
+      Math.random() > 0.975
+    ) {
+      drops[i] = 0;
+    }
+
+    drops[i]++;
+  }
+}
+
+setInterval(drawMatrix, 35);
+
+window.addEventListener("resize", () => {
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+});
+```
