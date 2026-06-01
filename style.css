@@ -1,37 +1,58 @@
-{
+/* CSS VARIABLES & GLOBAL */
+:root {
+  --accent-color: #00f2fe; /* Màu xanh Cyan công nghệ */
+  --bg-color: #000;
+  --card-bg: #0c0c0c;
+  --border-color: #222;
+  --text-main: #fff;
+  --text-muted: #888;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* Cuộn mượt mà giữa các section */
+}
+
 body {
   font-family: 'Inter', sans-serif;
-  background: #000;
-  color: #fff;
+  background: var(--bg-color);
+  color: var(--text-main);
   overflow-x: hidden;
 }
 
-/* GRID BACKGROUND */
+/* GRID BACKGROUND WITH MASK */
 .grid-bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: -1;
+  /* Tạo chiều sâu: làm mờ nền lưới ở các cạnh rìa màn hình */
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
 /* NAVBAR */
 .navbar {
   width: 100%;
   padding: 25px 8%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
 .logo {
@@ -49,22 +70,20 @@ body {
 .nav-links a {
   color: #aaa;
   text-decoration: none;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #fff;
+  color: var(--accent-color);
 }
 
 /* HERO */
 .hero {
   width: 100%;
   min-height: 90vh;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 8%;
   gap: 80px;
 }
@@ -74,7 +93,7 @@ body {
 }
 
 .small-text {
-  color: #888;
+  color: var(--text-muted);
   letter-spacing: 3px;
   margin-bottom: 20px;
 }
@@ -102,32 +121,33 @@ button {
   border: none;
   cursor: pointer;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .btn-white {
-  background: #fff;
+  background: var(--text-main);
   color: #000;
 }
 
 .btn-white:hover {
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .btn-dark {
   background: transparent;
-  color: #fff;
+  color: var(--text-main);
   border: 1px solid #444;
 }
 
 .btn-dark:hover {
   background: #111;
+  border-color: var(--text-main);
 }
 
-/* TERMINAL */
+/* TERMINAL WITH ACCENT COLORS */
 .hero-right {
   flex: 1;
-
   display: flex;
   justify-content: center;
 }
@@ -135,22 +155,16 @@ button {
 .terminal {
   width: 100%;
   max-width: 550px;
-
   background: #0b0b0b;
-  border: 1px solid #222;
-
+  border: 1px solid var(--border-color);
   border-radius: 20px;
-
   overflow: hidden;
-
-  box-shadow:
-    0 0 30px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.05);
 }
 
 .terminal-header {
   background: #111;
   padding: 15px;
-
   display: flex;
   gap: 10px;
 }
@@ -162,21 +176,25 @@ button {
   background: #444;
 }
 
+.terminal-header span:nth-child(1) { background: #ff5f56; } /* Nút đỏ Mac */
+.terminal-header span:nth-child(2) { background: #ffbd2e; } /* Nút vàng Mac */
+.terminal-header span:nth-child(3) { background: #27c93f; } /* Nút xanh Mac */
+
 .terminal-body {
   padding: 30px;
 }
 
 .terminal-body p {
   margin-bottom: 15px;
-  color: #bbb;
+  color: var(--accent-color); /* Chữ màu xanh Cyan huyền bí */
   font-family: monospace;
-  min-height: 20px; /* Giữ dòng không bị sụp khi chưa chạy chữ */
+  min-height: 20px;
+  text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
 }
 
-/* Con trỏ terminal nhấp nháy */
 .cursor {
   font-weight: bold;
-  color: #fff;
+  color: var(--text-main);
   animation: blink 0.8s infinite;
   margin-left: 2px;
 }
@@ -189,27 +207,24 @@ button {
 /* STATS */
 .stats {
   width: 100%;
-
   padding: 80px 8%;
-
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
 }
 
 .stat-card {
-  background: #0c0c0c;
-  border: 1px solid #222;
-
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 40px;
   border-radius: 20px;
-
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
-  border-color: #666;
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 20px rgba(0, 242, 254, 0.05);
 }
 
 .stat-card h2 {
@@ -218,7 +233,7 @@ button {
 }
 
 .stat-card p {
-  color: #888;
+  color: var(--text-muted);
 }
 
 /* SKILLS */
@@ -238,23 +253,22 @@ button {
 }
 
 .skill-card {
-  background: #0d0d0d;
-  border: 1px solid #222;
-
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   padding: 35px;
   border-radius: 18px;
-
   text-align: center;
-
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
-  border-color: #fff;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0 10px 20px rgba(0, 242, 254, 0.05);
 }
 
-/* PROJECTS */
+/* PROJECTS WITH COOL BUTTONS */
 .projects {
   padding: 100px 8%;
 }
@@ -266,40 +280,34 @@ button {
 }
 
 .project-card {
-  background: #0b0b0b;
-  border: 1px solid #222;
-
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 22px;
   overflow: hidden;
-
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: #555;
+  border-color: #444;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .project-image {
   height: 220px;
-
-  background:
-    linear-gradient(135deg, #111, #222);
-
+  background: linear-gradient(135deg, #111, #222);
   position: relative;
 }
 
 .project-image::before {
   content: "";
   position: absolute;
-
   width: 80%;
   height: 2px;
-
-  background: #fff;
-
+  background: var(--accent-color);
   top: 50%;
   left: 10%;
+  opacity: 0.3;
 }
 
 .project-content {
@@ -312,16 +320,26 @@ button {
 }
 
 .project-content p {
-  color: #888;
+  color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 25px;
 }
 
 .project-content button {
   width: 100%;
-  background: #fff;
-  color: #000;
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid #333;
   border-radius: 10px;
+  padding: 12px;
+}
+
+.project-content button:hover {
+  background: var(--accent-color);
+  color: #000;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
 }
 
 /* FOOTER */
@@ -332,13 +350,26 @@ footer {
   border-top: 1px solid #111;
 }
 
+/* SCROLL FADE-IN ANIMATION CLASSES */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* RESPONSIVE */
 @media(max-width: 1000px) {
   .hero {
     flex-direction: column;
     padding-top: 50px;
+    gap: 40px;
   }
-
   .hero-left h1 {
     font-size: 52px;
   }
@@ -346,13 +377,11 @@ footer {
 
 @media(max-width: 700px) {
   .nav-links {
-    display: none;
+    display: none; /* Nên làm Hamburger menu ở đây nếu phát triển thêm */
   }
-
   .hero-left h1 {
     font-size: 42px;
   }
-
   .section-title {
     font-size: 32px;
   }
