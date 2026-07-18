@@ -3,9 +3,9 @@
 // ==========================================
 
 const staticLines = [
-  { id: "line1", text: "WELLOME TO... ANH ĐẠT TỚI CHƠI" },
-  { id: "line2", text: "NẾU (feat. Obito)" },
-  { id: "line3", text: "Binz, Obito" }
+  { id: "line1", text: "Chào mừng tụi bây, khi đã bước đến nơi đây !!" },
+  { id: "line2", text: "Wellome to.... ANH ĐẠT TỚI CHƠI" },
+  { id: "line3", text: "Tụi bây đã bị 1 mình tao bao vây !! Lên nhạc :)))" }
 ];
 
 const texts = [
@@ -15,7 +15,7 @@ const texts = [
   "Nhìn người lạc vào dòng đời, trôi cùng những ký ức êm đềm"
 ];
 
-let speed = 100;
+let speed = 150;
 let staticLineIndex = 0; 
 let charIndex = 0;
 let textIndex = 0; 
