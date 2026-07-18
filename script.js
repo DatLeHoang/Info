@@ -3,16 +3,16 @@
 // ==========================================
 
 const staticLines = [
-  { id: "line1", text: "initializing portfolio..." },
-  { id: "line2", text: "importing datasets..." },
-  { id: "line3", text: "building dashboard..." }
+  { id: "line1", text: "WELLOME TO... ANH ĐẠT TỚI CHƠI" },
+  { id: "line2", text: "NẾU (feat. Obito)" },
+  { id: "line3", text: "Binz, Obito" }
 ];
 
 const texts = [
-  "SQL Specialist",
-  "Power BI Developer",
-  "Python Data Analyst",
-  "Dashboard Builder"
+  "Nếu như vào ngày đó, anh nói hết những điều anh nghĩ",
+  "Thì giờ mình chẳng phải nổi đóa, với những vết cắt thâu đêm",
+  "Mắt hoen lệ mi ướt, yêu thương của cuộc tình rơi xuống",
+  "Nhìn người lạc vào dòng đời, trôi cùng những ký ức êm đềm"
 ];
 
 let speed = 100;
