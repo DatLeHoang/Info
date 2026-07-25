@@ -79,13 +79,13 @@ body {
 
 /* HERO */
 .hero {
-  width: 100%;
+  width: 130%;
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8%;
-  gap: 80px;
+  padding: 0 4%;
+  gap: 20px;
 }
 
 .hero-left {
