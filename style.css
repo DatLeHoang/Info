@@ -95,8 +95,8 @@ body {
 
 /* LÊ HOÀNG ĐẠT / ANH ĐẠT TỚI CHƠI*/
 .small-text {
-  color: #10B981;
-  letter-spacing: 3px;
+  color: #00F2FE;
+  letter-spacing: 2px;
   margin-bottom: 25px;
 }
 
@@ -106,8 +106,9 @@ body {
   margin-bottom: 30px;
 }
 
+/*Trời xanh còn....*/
 .description {
-  color: #999;
+  color: #CCFF00;
   max-width: 550px;
   line-height: 1.8;
   margin-bottom: 40px;
