@@ -15,7 +15,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Cuộn mượt mà giữa các section */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,7 +35,6 @@ body {
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: -1;
-  /* Tạo chiều sâu: làm mờ nền lưới ở các cạnh rìa màn hình */
   mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
@@ -57,7 +56,7 @@ body {
 }
 
 .logo {
-  font-size: 50px;
+  font-size: 28px;
   font-weight: 900;
   letter-spacing: 2px;
 }
@@ -78,38 +77,40 @@ body {
   color: var(--accent-color);
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-  width: 130%;
+  width: 100%;
   min-height: 90vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 3%;
-  gap: 1px;
+  padding: 0 8%;
+  position: relative;
+  gap: 20px;
 }
 
 .hero-left {
   flex: 1;
+  z-index: 2;
 }
 
-/* LÊ HOÀNG ĐẠT / ANH ĐẠT TỚI CHƠI*/
 .small-text {
   color: #00F2FE;
   letter-spacing: 2px;
   margin-bottom: 25px;
+  font-weight: 600;
 }
 
 .hero-left h1 {
-  font-size: 72px;
+  font-size: 56px;
   line-height: 1.1;
   margin-bottom: 30px;
+  font-weight: 800;
 }
 
-/*Trời xanh còn....*/
 .description {
   color: #CCFF00;
-  max-width: 550px;
+  max-width: 500px;
   line-height: 1.8;
   margin-bottom: 40px;
 }
@@ -130,6 +131,7 @@ button {
 .btn-white {
   background: var(--text-main);
   color: #000;
+  border-radius: 8px;
 }
 
 .btn-white:hover {
@@ -141,6 +143,7 @@ button {
   background: transparent;
   color: var(--text-main);
   border: 1px solid #444;
+  border-radius: 8px;
 }
 
 .btn-dark:hover {
@@ -148,16 +151,43 @@ button {
   border-color: var(--text-main);
 }
 
+/* PHẦN ẢNH CÁ NHÂN Ở GIỮA (HERO-CENTER) */
+.hero-center {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  max-width: 650px;
+}
+
+.hero-avatar {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, black 30%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 45%, black 30%, transparent 72%);
+  filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.9));
+}
+
 /* TERMINAL WITH ACCENT COLORS */
 .hero-right {
   flex: 1;
   display: flex;
-  justify-content: left;
+  justify-content: flex-end;
+  z-index: 2;
 }
 
 .terminal {
   width: 100%;
-  max-width: 550px;
+  max-width: 500px;
   background: #0b0b0b;
   border: 1px solid var(--border-color);
   border-radius: 20px;
@@ -179,9 +209,9 @@ button {
   background: #444;
 }
 
-.terminal-header span:nth-child(1) { background: #ff5f56; } /* Nút đỏ Mac */
-.terminal-header span:nth-child(2) { background: #ffbd2e; } /* Nút vàng Mac */
-.terminal-header span:nth-child(3) { background: #27c93f; } /* Nút xanh Mac */
+.terminal-header span:nth-child(1) { background: #ff5f56; }
+.terminal-header span:nth-child(2) { background: #ffbd2e; }
+.terminal-header span:nth-child(3) { background: #27c93f; }
 
 .terminal-body {
   padding: 30px;
@@ -189,7 +219,7 @@ button {
 
 .terminal-body p {
   margin-bottom: 15px;
-  color: var(--accent-color); /* Chữ màu xanh Cyan huyền bí */
+  color: var(--accent-color);
   font-family: monospace;
   min-height: 20px;
   text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
@@ -214,6 +244,8 @@ button {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 30px;
+  position: relative;
+  z-index: 3;
 }
 
 .stat-card {
@@ -367,23 +399,60 @@ footer {
 }
 
 /* RESPONSIVE */
+@media(max-width: 1200px) {
+  .hero-center {
+    opacity: 0.5;
+    max-width: 450px;
+  }
+}
+
 @media(max-width: 1000px) {
   .hero {
     flex-direction: column;
-    padding-top: 50px;
+    padding-top: 60px;
     gap: 40px;
+    align-items: center;
   }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 auto 40px auto;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .hero-center {
+    position: relative;
+    left: auto;
+    transform: none;
+    opacity: 1;
+    margin: -20px 0;
+  }
+
+  .hero-right {
+    justify-content: center;
+    width: 100%;
+  }
+
   .hero-left h1 {
-    font-size: 52px;
+    font-size: 42px;
   }
 }
 
 @media(max-width: 700px) {
   .nav-links {
-    display: none; /* Nên làm Hamburger menu ở đây nếu phát triển thêm */
+    display: none;
+  }
+  .logo {
+    font-size: 20px;
   }
   .hero-left h1 {
-    font-size: 42px;
+    font-size: 32px;
   }
   .section-title {
     font-size: 32px;
