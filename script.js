@@ -12,6 +12,18 @@ const staticLines = [
     text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
   },
   {
+    id: "line2",
+    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
+  },
+  {
+    id: "line2",
+    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
+  },
+  {
+    id: "line2",
+    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
+  },
+  {
     id: "line3",
     text: "Tụi bây đã bị 1 mình tao bao vây !! Lên nhạc :)))"
   }
