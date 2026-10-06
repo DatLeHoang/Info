@@ -145,12 +145,11 @@ body {
   font-weight: 600;
 }
 
-
-/* ==========================================
-   TIÊU ĐỀ
-========================================== */
-
+/* --------------------------------------------------
+   TIÊU ĐỀ: "NHỮNG VẤN ĐỀ GIẢI QUYẾT ĐƯỢC TIỀN..."
+-------------------------------------------------- */
 .hero-left h1 {
+  /* CHỈNH KÍCH THƯỚC CHỮ TẠI ĐÂY (Ví dụ: 40px, 48px, 60px...) */
   font-size: 48px;
 
   line-height: 1.1;
@@ -234,6 +233,7 @@ button {
   object-fit: contain;
   display: block;
 
+  /* Giúp bóng phát sáng đẹp quanh nhân vật khi dùng ảnh PNG xóa nền */
   filter:
     drop-shadow(0 0 15px rgba(0, 242, 254, 0.35))
     drop-shadow(0 0 40px rgba(0, 242, 254, 0.15));
@@ -258,7 +258,7 @@ button {
 .terminal {
   width: 100%;
 
-  /* Tăng kích thước terminal */
+  /* Tăng kích thước terminal để chứa thêm dòng */
   max-width: 620px;
 
   background: #0b0b0b;
@@ -282,17 +282,9 @@ button {
   background: #444;
 }
 
-.terminal-header span:nth-child(1) {
-  background: #ff5f56;
-}
-
-.terminal-header span:nth-child(2) {
-  background: #ffbd2e;
-}
-
-.terminal-header span:nth-child(3) {
-  background: #27c93f;
-}
+.terminal-header span:nth-child(1) { background: #ff5f56; }
+.terminal-header span:nth-child(2) { background: #ffbd2e; }
+.terminal-header span:nth-child(3) { background: #27c93f; }
 
 .terminal-body {
   padding: 35px;
@@ -314,13 +306,8 @@ button {
 }
 
 @keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 
@@ -413,7 +400,6 @@ button {
   position: relative;
   z-index: 3;
 
-  /* Không để navbar che phần tiêu đề khi cuộn */
   scroll-margin-top: 100px;
 }
 
@@ -423,7 +409,6 @@ button {
 
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-
   padding: 60px;
   border-radius: 22px;
 
@@ -597,8 +582,6 @@ footer {
   .hero-right {
     justify-content: center;
     width: 100%;
-
-    /* Hạ terminal nhẹ trên màn hình vừa */
     padding-top: 30px;
   }
 
@@ -607,7 +590,7 @@ footer {
   }
 
   .hero-left h1 {
-    font-size: 36px;
+    font-size: 36px; /* Kích thước chữ tiêu đề trên màn hình vừa */
   }
 
   .about {
@@ -625,7 +608,7 @@ footer {
   }
 
   .hero-left h1 {
-    font-size: 28px;
+    font-size: 28px; /* Kích thước chữ tiêu đề trên điện thoại */
   }
 
   .section-title {
