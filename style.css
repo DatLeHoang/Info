@@ -222,12 +222,12 @@ button {
   align-items: flex-end;
 
   width: 100%;
-  max-width: 650px;
+  max-width: 800px;
 }
 
 .hero-avatar {
   width: 100%;
-  max-width: 700px;
+  max-width: 850px;
   height: auto;
   object-fit: contain;
   display: block;
