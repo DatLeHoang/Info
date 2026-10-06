@@ -1,3 +1,4 @@
+```css
 /* ==========================================
    CSS VARIABLES & GLOBAL
 ========================================== */
@@ -144,11 +145,12 @@ body {
   font-weight: 600;
 }
 
-/* --------------------------------------------------
-   TIÊU ĐỀ: "NHỮNG VẤN ĐỀ GIẢI QUYẾT ĐƯỢC TIỀN..."
--------------------------------------------------- */
+
+/* ==========================================
+   HERO TITLE
+========================================== */
+
 .hero-left h1 {
-  /* CHỈNH KÍCH THƯỚC CHỮ TẠI ĐÂY (Ví dụ: 40px, 48px, 60px...) */
   font-size: 48px;
 
   line-height: 1.1;
@@ -232,7 +234,6 @@ button {
   object-fit: contain;
   display: block;
 
-  /* Giúp bóng phát sáng đẹp quanh nhân vật khi dùng ảnh PNG xóa nền */
   filter:
     drop-shadow(0 0 15px rgba(0, 242, 254, 0.35))
     drop-shadow(0 0 40px rgba(0, 242, 254, 0.15));
@@ -247,22 +248,32 @@ button {
   flex: 1;
   display: flex;
   justify-content: flex-end;
+
+  /* Hạ terminal xuống một chút */
+  padding-top: 70px;
+
   z-index: 2;
 }
 
 .terminal {
   width: 100%;
-  max-width: 500px;
+
+  /* Terminal lớn hơn để có thêm không gian */
+  max-width: 620px;
+
   background: #0b0b0b;
   border: 1px solid var(--border-color);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 242, 254, 0.05);
+
+  box-shadow:
+    0 10px 40px rgba(0, 242, 254, 0.05);
 }
 
 .terminal-header {
   background: #111;
   padding: 15px;
+
   display: flex;
   gap: 10px;
 }
@@ -274,12 +285,20 @@ button {
   background: #444;
 }
 
-.terminal-header span:nth-child(1) { background: #ff5f56; }
-.terminal-header span:nth-child(2) { background: #ffbd2e; }
-.terminal-header span:nth-child(3) { background: #27c93f; }
+.terminal-header span:nth-child(1) {
+  background: #ff5f56;
+}
+
+.terminal-header span:nth-child(2) {
+  background: #ffbd2e;
+}
+
+.terminal-header span:nth-child(3) {
+  background: #27c93f;
+}
 
 .terminal-body {
-  padding: 30px;
+  padding: 35px;
 }
 
 .terminal-body p {
@@ -287,7 +306,9 @@ button {
   color: var(--accent-color);
   font-family: monospace;
   min-height: 20px;
-  text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
+
+  text-shadow:
+    0 0 5px rgba(0, 242, 254, 0.2);
 }
 
 .cursor {
@@ -298,8 +319,13 @@ button {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%, 100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 
@@ -310,9 +336,13 @@ button {
 .stats {
   width: 100%;
   padding: 80px 8%;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
   gap: 30px;
+
   position: relative;
   z-index: 3;
 }
@@ -320,15 +350,20 @@ button {
 .stat-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+
   padding: 40px;
   border-radius: 20px;
+
   transition: 0.3s ease;
 }
 
 .stat-card:hover {
   transform: translateY(-5px);
+
   border-color: var(--accent-color);
-  box-shadow: 0 10px 20px rgba(0, 242, 254, 0.05);
+
+  box-shadow:
+    0 10px 20px rgba(0, 242, 254, 0.05);
 }
 
 .stat-card h2 {
@@ -356,24 +391,86 @@ button {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(180px, 1fr));
+
   gap: 20px;
 }
 
 .skill-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+
   padding: 35px;
   border-radius: 18px;
+
   text-align: center;
+
   transition: 0.3s ease;
 }
 
 .skill-card:hover {
   transform: translateY(-5px);
+
   border-color: var(--accent-color);
   color: var(--accent-color);
-  box-shadow: 0 10px 20px rgba(0, 242, 254, 0.05);
+
+  box-shadow:
+    0 10px 20px rgba(0, 242, 254, 0.05);
+}
+
+
+/* ==========================================
+   ABOUT / GIỚI THIỆU
+========================================== */
+
+.about {
+  padding: 100px 8%;
+  min-height: 450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  z-index: 3;
+
+  /* Không để navbar sticky che tiêu đề */
+  scroll-margin-top: 100px;
+}
+
+.about-content {
+  width: 100%;
+  max-width: 1000px;
+
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+
+  border-radius: 22px;
+
+  padding: 60px;
+
+  text-align: center;
+
+  transition: 0.3s ease;
+}
+
+.about-content:hover {
+  border-color: var(--accent-color);
+
+  box-shadow:
+    0 10px 30px rgba(0, 242, 254, 0.05);
+}
+
+.about-content .section-title {
+  margin-bottom: 25px;
+}
+
+.about-content p {
+  color: var(--text-muted);
+
+  font-size: 20px;
+  line-height: 1.8;
 }
 
 
@@ -387,38 +484,57 @@ button {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
   gap: 30px;
 }
 
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--border-color);
+
   border-radius: 22px;
   overflow: hidden;
+
   transition: 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
+
   border-color: #444;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .project-image {
   height: 220px;
-  background: linear-gradient(135deg, #111, #222);
+
+  background:
+    linear-gradient(
+      135deg,
+      #111,
+      #222
+    );
+
   position: relative;
 }
 
 .project-image::before {
   content: "";
+
   position: absolute;
+
   width: 80%;
   height: 2px;
+
   background: var(--accent-color);
+
   top: 50%;
   left: 10%;
+
   opacity: 0.3;
 }
 
@@ -433,25 +549,33 @@ button {
 
 .project-content p {
   color: var(--text-muted);
+
   line-height: 1.7;
   margin-bottom: 25px;
 }
 
 .project-content button {
   width: 100%;
+
   background: transparent;
   color: var(--text-main);
+
   border: 1px solid #333;
   border-radius: 10px;
+
   padding: 12px;
 }
 
 .project-content button:hover {
   background: var(--accent-color);
   color: #000;
+
   border-color: var(--accent-color);
+
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+
+  box-shadow:
+    0 5px 15px rgba(0, 242, 254, 0.3);
 }
 
 
@@ -461,8 +585,11 @@ button {
 
 footer {
   padding: 50px 8%;
+
   text-align: center;
+
   color: #666;
+
   border-top: 1px solid #111;
 }
 
@@ -473,9 +600,16 @@ footer {
 
 .fade-in {
   opacity: 0;
+
   transform: translateY(40px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  will-change: opacity, transform;
+
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+
+  will-change:
+    opacity,
+    transform;
 }
 
 .fade-in.appear {
@@ -489,17 +623,24 @@ footer {
 ========================================== */
 
 @media(max-width: 1200px) {
+
   .hero-center {
     opacity: 0.5;
     max-width: 450px;
   }
+
 }
 
+
 @media(max-width: 1000px) {
+
   .hero {
     flex-direction: column;
+
     padding-top: 60px;
+
     gap: 40px;
+
     align-items: center;
   }
 
@@ -517,23 +658,37 @@ footer {
 
   .hero-center {
     position: relative;
+
     left: auto;
+
     transform: none;
+
     opacity: 1;
+
     margin: -20px 0;
   }
 
   .hero-right {
     justify-content: center;
     width: 100%;
+
+    /* Giữ khoảng cách terminal trên màn hình vừa */
+    padding-top: 30px;
+  }
+
+  .terminal {
+    max-width: 700px;
   }
 
   .hero-left h1 {
-    font-size: 36px; /* Kích thước chữ tiêu đề trên màn hình vừa */
+    font-size: 36px;
   }
+
 }
 
+
 @media(max-width: 700px) {
+
   .nav-links {
     display: none;
   }
@@ -543,10 +698,28 @@ footer {
   }
 
   .hero-left h1 {
-    font-size: 28px; /* Kích thước chữ tiêu đề trên điện thoại */
+    font-size: 28px;
   }
 
   .section-title {
     font-size: 32px;
   }
+
+  .about {
+    padding: 70px 8%;
+  }
+
+  .about-content {
+    padding: 35px 25px;
+  }
+
+  .about-content p {
+    font-size: 17px;
+  }
+
+  .terminal-body {
+    padding: 25px;
+  }
+
 }
+```
