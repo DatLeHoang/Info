@@ -5,35 +5,23 @@
 const staticLines = [
   {
     id: "line1",
-    text: "Chào mừng tụi bây, khi đã bước đến nơi đây !!"
+    text: "Những gì được đo lường sẽ được quản lý."
   },
   {
     id: "line2",
-    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
-  },
-  {
-    id: "line2",
-    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
-  },
-  {
-    id: "line2",
-    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
-  },
-  {
-    id: "line2",
-    text: "Wellome to.... ANH ĐẠT TỚI CHƠI"
+    text: "Nếu không có dữ liệu, bạn chỉ là một người khác có ý kiến ​​mà thôi."
   },
   {
     id: "line3",
-    text: "Tụi bây đã bị 1 mình tao bao vây !! Lên nhạc :)))"
+    text: "Sử dụng dữ liệu không chính xác, còn tệ hơn là không dùng dữ liệu gì cả"
   }
 ];
 
 const texts = [
-  "Nếu như vào ngày đó, anh nói hết những điều anh nghĩ",
-  "Thì giờ mình chẳng phải nổi đóa, với những vết cắt thâu đêm",
-  "Mắt hoen lệ mi ướt, yêu thương của cuộc tình rơi xuống",
-  "Nhìn người lạc vào dòng đời, trôi cùng những ký ức êm đềm"
+  "Dữ liệu chưa phải thông tin. Thông tin cũng chưa phải tri thức.",
+  "Dữ liệu tốt dẫn đến quyết định tốt.",
+  "Dữ liệu chỉ thực sự có giá trị khi nó tạo ra hành động",
+  "Dữ liệu lên tiếng. Việc của chúng ta là lắng nghe."
 ];
 
 let speed = 150;
